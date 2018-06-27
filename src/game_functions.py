@@ -69,15 +69,23 @@ def check_bullet_block_collisions(settings, screen, ship,
                                   blocks, bullets):
     """Respond to bullet-block collisions."""
     # Remove any bullets and blocks that have collided.
-    collisions = pygame.sprite.groupcollide(bullets, blocks, True, True)
+    collisions = pygame.sprite.groupcollide(bullets, blocks, True, False) 
+
+    # groupcollide using true will remove items
 
     if collisions:
-        for blocks in collisions.values():
-            print("HIT", blocks)
+        for blocks_hit in collisions.values():
+            print("HIT", len(blocks), len(blocks_hit))
+            for block in blocks_hit:
+	            block.value -=1
+	            block.prep_msg()
+	            if block.value <= 0:
+	            	blocks.remove(block)
+
             # stats.score += ai_settings.block_points * len(blocks)
             # sb.prep_score()
         # check_high_score(stats, sb)
-
+"""
     if len(blocks) == 0:
         # If the entire fleet is destroyed, start a new level.
         bullets.empty()
@@ -88,3 +96,4 @@ def check_bullet_block_collisions(settings, screen, ship,
         sb.prep_level()
 
         create_fleet(ai_settings, screen, ship, blocks)
+        """

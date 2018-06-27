@@ -21,31 +21,23 @@ def run_game():
 # Make the Play button.
     play_button = Button(settings, screen, "Play")
 
-    #play_block = Block(settings, screen)
-
-# Make a ship, a group of bullets.
+# Make a ship, a group of bullets and blocks.
     ship = Ship(settings, screen)
     bullets = Group()
     blocks = Group()
 
     # make some blocks for now
     # TODO implement this in levels
-    """
-    n = 4
-    a = [0] * n
-    a = [[2] * i + [1] + [0] * (n - i - 1) for i in range(n)]
-    for row in a:
-    	print(row[0])
-    	new_block = Block(settings, screen, str(100 * row[0]), 0, 0 )
-    	blocks.add(new_block)
-        #print(' '.join([str(elem) for elem in row]))
-"""
+
     level = [0, 1, 3, 0, 4, 5, 6]
 
     for b in level:
         print(b)        
         new_block = Block(settings, screen, b*50, 0, b)
         blocks.add(new_block)
+
+    new_block = Block(settings, screen, 280, 0, 3)
+    blocks.add(new_block)
 
     while True:
 
