@@ -44,6 +44,11 @@ def check_events(settings, screen, ship, bullets):
 def fire_bullet(settings, screen, ship, bullets):
     """Fire a bullet, if limit not reached yet."""
     # Create a new bullet, add to bullets group.
+    
+    ship.center -= 10
+    ship.rect.centerx = ship.center
+    ship.blitme()
+
     print("firing")
     if len(bullets) < settings.bullets_allowed:
         new_bullet = Bullet(settings, screen, ship)
@@ -69,7 +74,7 @@ def check_bullet_block_collisions(settings, screen, ship,
                                   blocks, bullets):
     """Respond to bullet-block collisions."""
     # Remove any bullets and blocks that have collided.
-    collisions = pygame.sprite.groupcollide(bullets, blocks, True, False) 
+    collisions = pygame.sprite.groupcollide(bullets, blocks, True, False)
 
     # groupcollide using true will remove items
 
@@ -77,10 +82,11 @@ def check_bullet_block_collisions(settings, screen, ship,
         for blocks_hit in collisions.values():
             print("HIT", len(blocks), len(blocks_hit))
             for block in blocks_hit:
-	            block.value -=1
-	            block.prep_msg()
-	            if block.value <= 0:
-	            	blocks.remove(block)
+                block.value -= 1
+                block.prep_msg()
+                if block.value <= 0:
+                    blocks.remove(block)
+
 
             # stats.score += ai_settings.block_points * len(blocks)
             # sb.prep_score()

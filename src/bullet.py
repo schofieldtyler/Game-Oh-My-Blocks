@@ -11,9 +11,8 @@ class Bullet(Sprite):
         self.screen = screen
 
         # Create bullet rect at (0, 0), then set correct position.
-        
-        self.rect = pygame.Rect(0, 0, settings.bullet_width,
-                                settings.bullet_height)
+        self.rect = pygame.Rect(
+            0, 0, settings.bullet_width, settings.bullet_height)
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
 
@@ -34,4 +33,5 @@ class Bullet(Sprite):
         """Draw the bullet to the screen."""
         #pygame.draw.rect(self.screen, self.color, self.rect)
         #pygame.draw.circle(self.screen, self.color, self.rect, 20, width=0)
-        pygame.draw.circle(self.screen, self.color, [self.rect.x, self.rect.y], 10)
+        pygame.draw.circle(self.screen, self.color, [
+                           self.rect.x, self.rect.y], 10)

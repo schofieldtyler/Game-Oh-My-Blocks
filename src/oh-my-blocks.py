@@ -29,13 +29,15 @@ def run_game():
     # make some blocks for now
     # TODO implement this in levels
 
-    level = [0, 1, 3, 0, 4, 5, 6]
+    level = [0, 1, 3, 2, 4, 5, 1]
 
     for b in level:
-        print(b)        
-        new_block = Block(settings, screen, b*50, 0, b)
-        blocks.add(new_block)
+        print("Block value", 0)        
+        if b > 0:
+        	new_block = Block(settings, screen, b*50, 0, b)
+        	blocks.add(new_block)
 
+    #TODO remove testing block
     new_block = Block(settings, screen, 280, 0, 3)
     blocks.add(new_block)
 
