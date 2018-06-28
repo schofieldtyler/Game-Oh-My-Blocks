@@ -10,7 +10,10 @@ def update_screen(settings, screen, play_button, blocks, ship, bullets):
     """Update images on the screen, and flip to the new screen."""
     # Redraw the screen, each pass through the loop.
     screen.fill(settings.bg_color)
-    play_button.draw_button()
+    
+    # TODO play button
+    # play_button.draw_button()
+
 
     # Redraw all bullets, behind ship and blocks.
     for bullet in bullets.sprites():

@@ -4,7 +4,10 @@ from settings import Settings
 import game_functions as game
 from button import Button
 from ship import Ship
+# TODO remove block import once demo blocks are done
 from block import Block
+
+from level import Level
 
 
 def run_game():
@@ -29,16 +32,12 @@ def run_game():
     # make some blocks for now
     # TODO implement this in levels
 
-    level = [0, 1, 3, 2, 4, 5, 1]
+    lev = Level(settings, screen, blocks)
+    level = lev.getLevel()
+    
 
-    for b in level:
-        print("Block value", 0)        
-        if b > 0:
-        	new_block = Block(settings, screen, b*50, 0, b)
-        	blocks.add(new_block)
-
-    #TODO remove testing block
-    new_block = Block(settings, screen, 280, 0, 3)
+    # TODO remove testing block
+    new_block = Block(settings, screen, 280, 0, 50)
     blocks.add(new_block)
 
     while True:

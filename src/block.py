@@ -24,8 +24,8 @@ class Block(Sprite):
         self.rect.x = x
 
         self.colors = list(colors.items())
-        print(self.colors[0])
-        print(self.colors[0][1].red)
+        # print(self.colors[0])
+        # print(self.colors[0][1].red)
 
         # Store a decimal value for the block's position.
         self.x = float(self.rect.x)
