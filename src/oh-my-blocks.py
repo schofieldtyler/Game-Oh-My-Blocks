@@ -4,8 +4,6 @@ from settings import Settings
 import game_functions as game
 from button import Button
 from ship import Ship
-# TODO remove block import once demo blocks are done
-from block import Block
 from level import Level
 import spritesheet
 
@@ -30,15 +28,9 @@ def run_game():
     ship = Ship(settings, screen)
     bullets = Group()
     blocks = Group()
-
-    # TODO flesh this out in in levels
-
+    
     level = Level(settings, screen, blocks)
     level.getLevel()
-
-    # TODO remove testing block
-    new_block = Block(settings, screen, 280, 0, 50)
-    blocks.add(new_block)
 
     while True:
 
