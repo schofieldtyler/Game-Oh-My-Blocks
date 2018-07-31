@@ -45,6 +45,12 @@ class Block(Sprite):
         # TODO move block down a specified amount from SETTINGS
         self.rect.top += 100
         self.prep_msg() # need to redraw the text/bg or it gets left behind
+
+        # TODO: find top of player
+        if self.rect.top >= 500:
+            return False
+        
+        return True
         
 
     def draw_block(self):

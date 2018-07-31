@@ -153,22 +153,20 @@ def update_level(settings, screen, blocks):
     """ once we have expended our bullets, move the level down toward the player """
     print("moving level/blocks down") 
     for block in blocks.sprites():
-        block.update_level()
+        # check whether the level has reached the player, ending the game
+        if block.update_level() == False:
+            # we have lost
+            ship_collision()
 
-def check_ship_collision(settings, screen, ship,
-                                  blocks, bullets):
-    """ check whether the level has reached the player, ending the game """
-    print("TODO: end level")
+def ship_collision():
+    """ the level has reached the player, ending the game """
+    print("TODO: die - end level")
 
-"""
-    if len(blocks) == 0:
-        # If the entire fleet is destroyed, start a new level.
-        bullets.empty()
-        settings.increase_speed()
-
-        # Increase level.
-        stats.level += 1
-        sb.prep_level()
-
-        create_fleet(ai_settings, screen, ship, blocks)
-        """
+def next_level():
+    """ start the new level, or a new one if there was no previous level """
+    # TODO: start a new level
+    # clean up old elements
+    # increment level
+    # track stats
+    # increase level specifc increments (speed etc)
+    # start level

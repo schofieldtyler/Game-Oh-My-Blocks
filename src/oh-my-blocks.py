@@ -23,7 +23,6 @@ def run_game():
     pygame.display.set_caption("Oh My Blocks")
 
    
-
 # Make the Play button.
     play_button = Button(settings, screen, "Play")
 
@@ -42,7 +41,6 @@ def run_game():
     blocks.add(new_block)
 
     while True:
-
 
         game.check_events(settings, screen, ship, bullets)
         game.update_bullets(settings, screen, ship, blocks, bullets)
