@@ -29,15 +29,17 @@ class Level(Sprite):
         # TODO: level selection/input
         level = level_1
 
-        rownum = 0        
+        rownum = 0
         for row in level:
             rownum += 1
             print(rownum)
             colnum = 0
-            for col in row:
+            for block_value in row:
                 colnum += 1
-                if col > 0:
-                    new_block = Block(self.settings, self.screen, colnum * (self.settings.block_col_spacing), rownum * (self.settings.block_row_spacing), col)
+                if block_value > 0:
+                    new_block = Block(self.settings, self.screen,
+                        colnum * self.settings.block_col_spacing, 
+                        rownum * self.settings.block_row_spacing, block_value)
                     self.blocks.add(new_block)
 
 

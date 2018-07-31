@@ -87,7 +87,7 @@ def fire_bullet(settings, screen, ship, bullets):
             # as we are starting a new burst, reset remaining to total
             settings.bullet_burst_remaining = settings.bullet_burst_total
 
-            # rest of bullets fired in screen update but we need to call the first one
+            # most bullets fired in screen update but we need to call the first
             fire_bullet_burst(settings, screen, ship, bullets)
 
     else:
