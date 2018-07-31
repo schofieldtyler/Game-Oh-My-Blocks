@@ -31,6 +31,7 @@ class Bullet(Sprite):
 
     def draw_bullet(self):
         """Draw the bullet to the screen."""
+        # TODO tweak bullet size
         #pygame.draw.rect(self.screen, self.color, self.rect)
         #pygame.draw.circle(self.screen, self.color, self.rect, 20, width=0)
         pygame.draw.circle(self.screen, self.color, [
