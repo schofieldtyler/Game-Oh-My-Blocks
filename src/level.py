@@ -25,25 +25,27 @@ class Level(Sprite):
         self.screen.blit(self.rect)
 
     def getLevel(self):
-        # TODO
-        #
+        """ build blocks to screen based on current level """
+        # TODO: level selection/input
         level = level_1
 
-        rownum = 0
+        rownum = 0        
         for row in level:
             rownum += 1
-
+            print(rownum)
+            colnum = 0
             for col in row:
+                colnum += 1
                 if col > 0:
-                    new_block = Block(self.settings, self.screen,
-                                      col * 50, rownum * 50, col)
+                    new_block = Block(self.settings, self.screen, colnum * (self.settings.block_col_spacing), rownum * (self.settings.block_row_spacing), col)
                     self.blocks.add(new_block)
 
 
 # Levels
 level_1 = [
-    [0, 1, 3, 2, 4, 9, 1],
-    [1, 3, 4, 2, 8, 9, 1]
+    [0, 1, 3, 2, 4, 9, 1, 9, 7, 6, 3, 5],
+    [1, 3, 4, 2, 8, 9, 1, 0, 0, 1, 1, 1],
+    [0, 1, 3, 2, 0, 0, 1, 4, 3, 2, 1, 0],
 ]
 
 level_2 = [

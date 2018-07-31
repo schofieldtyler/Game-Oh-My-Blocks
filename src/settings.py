@@ -30,3 +30,5 @@ class Settings():
         self.block_width = 30
         self.block_height = 30
         self.block_color = 255, 255, 255
+        self.block_col_spacing = self.block_width + 10
+        self.block_row_spacing = self.block_height + 10
