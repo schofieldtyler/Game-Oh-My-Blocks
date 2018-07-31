@@ -38,7 +38,6 @@ class Level(Sprite):
             rownum += 1
 
             for col in row:
-                print("hj")
                 if col > 0:
                     new_block = Block(self.settings, self.screen, col * 50, rownum * 50, col)
                     self.blocks.add(new_block)

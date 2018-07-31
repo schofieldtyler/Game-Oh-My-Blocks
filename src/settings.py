@@ -15,6 +15,16 @@ class Settings():
         self.bullet_color = 255, 255, 255
         self.bullets_allowed = 30
         self.bullet_speed_factor = 3
+        # Bullet burst firing settings
+        self.bullet_burst = True
+        self.bullet_burst_firing = False
+        # Do we allow multiple bursts at once
+        self.bullet_burst_multiple = False
+        self.bullet_burst_total = 3
+        self.bullet_burst_remaining = 3
+        # Interval between bullets when bursting
+        self.bullet_burst_rate = 30
+        self.bullet_burst_rate_remaining = 5
 
         # Block settings.
         self.block_width = 30
