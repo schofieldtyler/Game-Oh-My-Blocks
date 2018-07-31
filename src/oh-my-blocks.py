@@ -34,14 +34,16 @@ def run_game():
 
     # TODO flesh this out in in levels
 
-    lev = Level(settings, screen, blocks)
-    level = lev.getLevel()
+    level = Level(settings, screen, blocks)
+    level.getLevel()
 
     # TODO remove testing block
     new_block = Block(settings, screen, 280, 0, 50)
     blocks.add(new_block)
 
     while True:
+
+
         game.check_events(settings, screen, ship, bullets)
         game.update_bullets(settings, screen, ship, blocks, bullets)
         game.update_screen(settings, screen, play_button,

@@ -1,7 +1,6 @@
 import sys
 
 import pygame
-
 from bullet import Bullet
 from block import Block
 
@@ -49,6 +48,16 @@ def mouseline(settings, screen, ship, mouse_x, mouse_y):
     pygame.draw.line(screen, (0, 0, 255), (mouse_x, mouse_y),
                      (ship.rect.centerx, ship.rect.centery))
 
+    # basic height loop until i can follow the line with proper dots
+    px = 0
+    while px < mouse_x:
+        pygame.draw.circle(screen, (55, 55, 255), [px, mouse_y], 5)
+        px+=20
+
+    py = 0
+    while py < mouse_y:
+        pygame.draw.circle(screen, (55, 55, 255), [mouse_x, py], 5)
+        py+=20
 
 def check_events(settings, screen, ship, bullets):
     """Respond to keypresses and mouse events."""
@@ -112,6 +121,9 @@ def update_bullets(settings, screen, ship, blocks, bullets):
         if bullet.rect.bottom <= 0:
             print("bullet out of bounds", len(bullets))
             bullets.remove(bullet)
+            if len(bullets) == 0:
+                print("no more bullets")
+                update_level(settings, screen, blocks)
 
     check_bullet_block_collisions(settings, screen, ship, blocks, bullets)
 
@@ -136,6 +148,18 @@ def check_bullet_block_collisions(settings, screen, ship,
             # stats.score += ai_settings.block_points * len(blocks)
             # sb.prep_score()
         # check_high_score(stats, sb)
+
+def update_level(settings, screen, blocks):
+    """ once we have expended our bullets, move the level down toward the player """
+    print("moving level/blocks down") 
+    for block in blocks.sprites():
+        block.update_level()
+
+def check_ship_collision(settings, screen, ship,
+                                  blocks, bullets):
+    """ check whether the level has reached the player, ending the game """
+    print("TODO: end level")
+
 """
     if len(blocks) == 0:
         # If the entire fleet is destroyed, start a new level.

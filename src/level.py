@@ -20,17 +20,13 @@ class Level(Sprite):
         """Center the level on the screen."""
         self.center = self.screen_rect.centerx
 
-    def update(self):
-        # TODO
-        print("hello")
-
     def blitme(self):
         """Draw the level at its current location."""
         self.screen.blit(self.rect)
 
     def getLevel(self):
         # TODO
-        # 
+        #
         level = level_1
 
         rownum = 0
@@ -39,13 +35,9 @@ class Level(Sprite):
 
             for col in row:
                 if col > 0:
-                    new_block = Block(self.settings, self.screen, col * 50, rownum * 50, col)
+                    new_block = Block(self.settings, self.screen,
+                                      col * 50, rownum * 50, col)
                     self.blocks.add(new_block)
-
-
-        
-
-
 
 
 # Levels

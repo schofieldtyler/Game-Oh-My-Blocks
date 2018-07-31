@@ -39,13 +39,14 @@ class Block(Sprite):
         self.prep_msg()
 
 
-    def update(self):
-        # TODO
-        """Move the block up the screen."""
-        # Update the decimal position of the block.
-        #self.x -= 1
+    def update_level(self):
+        """Move the block down the screen."""
+        
+        # TODO figure out why only part of the block is moving
+        self.rect.top += 100
         # Update the rect position.
-        #self.rect.x = self.x
+        #self.rect.y = self.y
+        
 
     def draw_block(self):
         """Draw the block to the screen."""
