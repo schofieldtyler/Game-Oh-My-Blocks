@@ -42,10 +42,9 @@ class Block(Sprite):
     def update_level(self):
         """Move the block down the screen."""
         
-        # TODO figure out why only part of the block is moving
+        # TODO move block down a specified amount from SETTINGS
         self.rect.top += 100
-        # Update the rect position.
-        #self.rect.y = self.y
+        self.prep_msg() # need to redraw the text/bg or it gets left behind
         
 
     def draw_block(self):
